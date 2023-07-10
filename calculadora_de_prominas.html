@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de propinas</title>
+
+    <style>
+     .moved-text {
+         transform: translateX(150px);
+     }
+    </style>
+
+</head>
+<body>
+    <h1 class="moved-text">Calculadora de Propinas</h1>
+    <form action="">
+        <div>
+            <label for="boleta">Total de la Boleta:</label>
+            <input type="number" id="boleta" min="0" step="1" oninput="funciones()">
+            <label>Porsentaje de propinas:</label>
+            <select name="porcentaje" onchange="funciones()">
+                <option value="0.1">10%</option>
+                <option value="0.15">15%</option>
+                <option value="0.2">20%</option>
+            </select>
+            <button onclick="">calcular</button><br><br>
+            <label for="boleta">Propina: $</label><input type="number" id="total1"> <label for="i">CLP</label><br><br>
+            <label for="boleta">Total a pagar: $</label><input type="number" id="total2"> <label for="i">CLP</label<br>
+        </div>
+    </form>   
+    
+    <script>
+        function funciones() {
+            propina();
+            porcentar();
+        }
+        function propina(){
+         try{
+          var x= parseFloat(document.getElementById("boleta").value)||0;
+          var selectValue = parseFloat(document.querySelector('select[name="porcentaje"]').value);
+
+          document.getElementById("total1").value =x*selectValue;
+         } catch (falla) {}
+        }
+        function porcentar(){
+         try{
+          var x= parseFloat(document.getElementById("boleta").value)||0;
+          var selectValue = parseFloat(document.querySelector('select[name="porcentaje"]').value);
+          
+          document.getElementById("total2").value =x+x*selectValue;
+         } catch (fallas) {}
+        }
+    </script>
+    <script src="calculadora.js"></script>
+</body>
+</html>
